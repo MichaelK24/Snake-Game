@@ -19,3 +19,10 @@ Scoring:
 Your score increases each time the snake eats food.
 The longer the snake grows, the higher your score will be.
 Your High score will be saved in a file and displayed at the end of the game!
+
+
+Implementation: 
+
+Documentation: 
+
+Pictures:
