@@ -8,6 +8,7 @@ Controls:
 
 Use the arrow keys (up, down, left, right) to control the movement of the snake.
 Alternatively, you can use the WASD keys (W for up, A for left, S for down, D for right) for movement.
+
 Gameplay:
 
 The snake will start with a length of 1 and will increase in length each time it eats food.
