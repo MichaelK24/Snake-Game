@@ -1,5 +1,5 @@
 /**
- * @file main.cpp
+ * @file board.cpp
  * @author 
  * @brief 
  * @version 0.1
@@ -9,4 +9,3 @@
  * 
  */
 #include "board.h"
-#include "snake.h"
