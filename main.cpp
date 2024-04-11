@@ -12,16 +12,21 @@
 #include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-// #include "button.h"
+#include "button.h"
 #include "screen.h"
 
 int main()
 {
 
     sf::RenderWindow window(sf::VideoMode(2000, 1000), "SFML works!");
-    //sf::CircleShape shape(100.f);
-    //shape.setFillColor(sf::Color::Green);
+
     Screen startScreen(window);
+    Button button1("Button 1", {1000, 700}, {500, 400}, sf::Color::Green);
+    Button button2("Button 2", {1000, 500}, {500, 400},sf::Color::Green);
+    Button button3("Button 3", {1000, 300}, {500, 400}, sf::Color::Green);
+
+
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -29,35 +34,22 @@ int main()
         {   
             if (event.type == sf::Event::Closed)
             window.close();
+
+            button1.update(event, window);
+            button2.update(event, window);
+            button3.update(event, window);
         }
 
         window.clear();
-        //window.draw(shape);
         startScreen.draw();
+        window.draw(button1);
+        window.draw(button2);
+        window.draw(button3);
         window.display();
     }
 
     return 0;
 }
-//     sf::RenderWindow window(sf::VideoMode(640, 480), "Bouncing sprite.");
-//     while (window.isOpen())
-//    {
-//        sf::Event event;
 
-//        startScreen(window);
-
-
-    //    while (window.pollEvent(event))
-    //    {
-    //        if (event.type == sf::Event::Closed)
-    //            window.close();
-    //        yes.update(event, window);
-    //       no.update(event, window);
-    //    }
-
-    //     window.clear();
-    //     window.draw(yes);
-    //     window.draw(no);
-    //     window.display();
    
 

@@ -15,3 +15,4 @@ void Screen::draw()
     snake.setPosition(0.f, 50.f);
     gameWindow.draw(snake);
 }
+

@@ -1,4 +1,99 @@
-// #include "button.h"
+#include "button.h"
+
+
+Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Color color)
+{
+    if (!mTexture.loadFromFile("images/button.png"))
+    {
+        std::cout << "Error opening file\n";
+        exit(1);
+    }
+    //create sprite that look like a button
+    mButton.setTexture(mTexture);
+
+    //get size of image
+    sf::Vector2u imageSize = mTexture.getSize();
+    //change origin to the center of the image (makes rotation easy)
+    mButton.setOrigin(imageSize.x / 2, imageSize.y / 2);
+    //set position
+    mPosition = position;
+    mButton.setPosition(mPosition.x, mPosition.y);
+
+    //choose color
+    mButton.setColor(color);
+
+    //set size as a ratio of original size
+    mButton.setScale(size.x / imageSize.x, size.y / imageSize.y); //percentage of original
+
+    //Make label
+    // if (!mFont.loadFromFile("arial.ttf"))
+    // {
+    //     std::cout << "Error opening file\n";
+    //     exit(2);
+    // }
+
+    mText.setFont(mFont);
+    //choose the font size based on button size (I choose half)
+    unsigned int fontSize = mButton.getGlobalBounds().height / 2;
+    mText.setCharacterSize(fontSize);
+    //set label
+    mText.setString(s);
+    //set origin to the middle
+    mText.setOrigin(mText.getGlobalBounds().width / 2, mText.getGlobalBounds().height / 2);
+    //set position at the middle of the button
+    mText.setPosition(mPosition.x, mPosition.y - fontSize / 4);
+    //choose colors
+    mTextNormal = sf::Color::Green;
+    mTextHover = sf::Color::Red;
+    mText.setFillColor(mTextNormal);
+}
+
+void Button::update(sf::Event &e, sf::RenderWindow &window)
+{
+    // Your update logic here
+}
+
+void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
+{
+    target.draw(mButton, states);
+    target.draw(mText, states);
+}
+
+void Button::setText(std::string s)
+{
+    mText.setString(s);
+    mText.setOrigin(mText.getGlobalBounds().width / 2, mText.getGlobalBounds().height / 2);
+    //set position at the middle of the button
+    unsigned int fontSize = mButton.getGlobalBounds().height / 2;
+    mText.setPosition(mPosition.x, mPosition.y - fontSize / 4);
+}
+
+void Button::setPosition(sf::Vector2f position)
+{
+    mPosition = position;
+    mButton.setPosition(mPosition.x, mPosition.y);
+    unsigned int fontSize = mButton.getGlobalBounds().height / 2;
+    mText.setPosition(mPosition.x, mPosition.y - fontSize / 4);
+}
+
+void Button::setSize(sf::Vector2f size)
+{
+    sf::Vector2u imageSize = mTexture.getSize();
+    mButton.setScale(size.x / imageSize.x, size.y / imageSize.y);
+    mButton.setScale(size.x / imageSize.x, size.y / imageSize.y); //percentage of original
+
+    unsigned int fontSize = mButton.getGlobalBounds().height / 2;
+    mText.setCharacterSize(fontSize);
+
+    mText.setPosition(mPosition.x, mPosition.y - fontSize / 4);
+}
+
+void Button::setColor(sf::Color btnColor)
+{
+    mButtonColor = btnColor;
+    mButton.setColor(mButtonColor);
+}
+
 
 // /**
 //  * @brief Constructor that initializes the button with the given label (s), position (position), size (size), and color (color).
