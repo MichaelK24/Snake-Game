@@ -21,9 +21,9 @@ int main()
     sf::RenderWindow window(sf::VideoMode(2000, 1000), "SFML works!");
 
     Screen startScreen(window);
-    Button button1("Button 1", {1000, 700}, {500, 400}, sf::Color::Green);
-    Button button2("Button 2", {1000, 500}, {500, 400},sf::Color::Green);
-    Button button3("Button 3", {1000, 300}, {500, 400}, sf::Color::Green);
+    Button button3("START", {300, 700}, {375, 100}, sf::Color::Red);
+    Button button2("RULES", {700, 700}, {375, 100}, sf::Color::Red);
+    Button button1("EXIT", {1100, 700}, {375, 100}, sf::Color::Red);
 
 
 
