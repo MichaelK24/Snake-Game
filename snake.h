@@ -10,16 +10,39 @@
  */
 #ifndef SNAKE_H
 #define SNAKE_H
+#include <iostream>
+#include <vector>
+#include <ncurses.h>
+#include <cstdlib>
+#include <SFML/Graphics.hpp>
+#include "board.h"
+
 class Snake
 {
 private:
-    void update();
+    //void update();
+    int score = 0;
+    std::string lastMove;
+    Board myBoard;
+    // int direction;
+    // void pointGain(char apple, char snakeHead, int score);
+    // void directionInput();
 public:
-    void Eatapple();
-    void Turn();
-    void Colition();
+    Snake(Board myBoard);
+    void eatApple();
+    void turnInput();
+    void actualTurn();
+    void start();
+
+    // void Colition();
+    //char snakeHead = 's';
+    char snakeBody = 'b';
+    // char apple = 'A'; 
+    std::string directions[5]={"up", "down", "left", "right", "end"};
+    std::vector<char> snake;
+    bool gameOver;
+    std::string dir;
 
 };
-
 
 #endif
