@@ -45,6 +45,26 @@ void Board::displayboard(char array[size][size])
         cout<<std::endl;
     }
 }
+bool Board::greenblue(int row,int col)
+{
+    if(col%2==1)
+    {
+        if(row%2==0)
+        {
+            return true;
 
-//even integers dark green odd are light green.
-//
+        }else
+        {
+            return false;
+        }
+    
+    }else
+    if(row%2==0)
+    {
+        return false;
+    }else
+    {
+        return true;
+    }
+}
+
