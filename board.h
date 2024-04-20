@@ -26,6 +26,7 @@ public:
     void placeapple(char array[size][size],int score);
     void setupboard(char array[size][size]);
     void displayboard(char array[size][size]);
+    bool square(int row,int col);
 };
 
 
