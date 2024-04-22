@@ -11,33 +11,30 @@
 #include "snake.h"
 #include "board.h"
 
-Snake::Snake(Board myBoard)
+Snake::Snake(Board myBoard) : myBoard(myBoard)
 {
-    this->myBoard = myBoard;
-    //Board b; 
-    lastMove = "right";
+    dir = "right";
+    score = 0;
+    gameOver = false;
     start();
 }
 
 void Snake::start()
 {
-    int startingLength = 3;
-    int initialColumn = 10;
-    int intialRow = 10;
-    for(int i = 0; i < startingLength; i++)
-    {
-        snake.push_back('s');
-    }
-
+    Point initialPosition = {9,9};
+    snake.push_back(initialPosition);
+    myBoard.board[initialPosition.x][initialPosition.y] = 'S';
 }
 
-// void Snake::eatApple()
-// {
-//     if(){
-//         score++;
-//         snake.pushback(snakeBody);
-//     }
-// }
+void Snake::eatApple()
+{
+    if(myBoard.board[snake.front().x][snake.front().y] == 'a'){
+        Point newBody = snake.back();
+        snake.push_back(newBody);
+        score++;
+        myBoard.placeapple(board,score);
+    }
+}
 
 void Snake::turnInput(){
     keypad(stdscr,TRUE);
@@ -55,10 +52,23 @@ void Snake::turnInput(){
     }
 }
 
-char* Snake::actualTurn()
+void Snake::actualTurn()
 {
     // After turnInput function we will initialize a char pointer variable called temp to be equal to the function actualTurn()
-    // Initialize char * called and set it equal to vector[0]. 
+    // Initialize char * called and set it equal to vector[0]. Code is on phone.
+    Point* ret = snake.front();
+    Point newH = ret;
+    if(dir == "up"){
+        newH.y++;
+    } else if(dir == "down"){
+        newH.y--;
+    } else if(dir == "right"){
+        newH.x++;
+    } else if(dir == "left"){
+        newH.x--;
+    }
+    snake.push_front(newH);
+    snake.pop_back();
 }
 
 

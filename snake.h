@@ -24,10 +24,15 @@ private:
     int score = 0;
     std::string lastMove;
     Board myBoard;
+    char board[17][17];
     // int direction;
     // void pointGain(char apple, char snakeHead, int score);
     // void directionInput();
 public:
+    struct Point{
+        int x;
+        int y;
+    };
     Snake(Board myBoard);
     void eatApple();
     void turnInput();
@@ -36,10 +41,10 @@ public:
 
     // void Colition();
     //char snakeHead = 's';
-    char snakeBody = 'b';
+    //char snakeBody = 'b';
     // char apple = 'A'; 
     std::string directions[5]={"up", "down", "left", "right", "end"};
-    std::vector<char> snake;
+    std::vector<Point> snake;
     bool gameOver;
     std::string dir;
 
