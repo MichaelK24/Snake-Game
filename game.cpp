@@ -43,6 +43,13 @@ bool Game::isDone() const
 void Game::render()
 {
     mWindow.clear();
-    screen1.draw(mWindow);
+    switch(screen)
+    {
+        case 1: screen1.draw(mWindow);
+            break;
+        case 2: 
+    }
+        
+    
     mWindow.display();
 }
