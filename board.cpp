@@ -32,7 +32,7 @@ void Board::placeapple(char array[size][size],int score)
         row= rand()%17+1;
         col= rand()%17+1;
     }while(array[row][col]!=' ');
-    array[row][col]=='A';
+    array[row][col]='A';
 }
 void Board::displayboard(char array[size][size])
 {
@@ -44,7 +44,7 @@ void Board::displayboard(char array[size][size])
         }
         cout<<std::endl;
     }
-}
+}/*
 bool Board::greenblue(int row,int col)
 {
     if(col%2==1)
@@ -67,4 +67,4 @@ bool Board::greenblue(int row,int col)
         return true;
     }
 }
-
+*/

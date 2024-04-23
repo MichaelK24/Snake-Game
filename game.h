@@ -4,6 +4,7 @@
 #include "snake.h"
 #include <iostream>
 #include "welcomeScreen.h"
+//#include "gameScreen.h"
 // #include "button.h"
 
 class Game
@@ -16,8 +17,9 @@ public:
     void render();
     bool isDone() const;
 private:
-    WelcomeScreen screen1;
     sf::RenderWindow  mWindow;
+    WelcomeScreen screen1;
+    //GameScreen screen2;
     int screen;
     bool mIsDone;
     // sf::Texture mTextureTile;
