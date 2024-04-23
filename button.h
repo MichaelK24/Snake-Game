@@ -2,6 +2,7 @@
 #define BUTTON_H
 #include <iostream>
 #include <SFML/Graphics.hpp>
+//  #include "welcomeScreen.h"
 
 enum state {normal, hovered, clicked};
 
@@ -31,6 +32,8 @@ public:
     //This function update the button state and/or look
     void update(sf::Event& e, sf::RenderWindow& window);
     virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
+    //  bool isClicked(sf::Event &e, sf::RenderWindow &window);
+    
 
 private:
     sf::Sprite mButton;
