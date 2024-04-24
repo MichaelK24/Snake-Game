@@ -50,15 +50,36 @@ void WelcomeScreen::draw(sf::RenderWindow& window)
 }
 
 
-void WelcomeScreen::updateButtons(sf::Event &event, sf::RenderWindow& window)
+void WelcomeScreen::updateButtons()
 {
-    button1.update(event, window);
-    button2.update(event, window);
-    button3.update(event, window);
+    button1.update();
+    button2.update();
+    button3.update();
 }
 
-
-
+//call handel input for difrent screens
+int WelcomeScreen::handleInput(sf::Event &event, sf::RenderWindow& window)
+{
+        if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+        {
+            // Check if any of the buttons are clicked
+            if(button1.handleInput(event, window))
+            {
+                // Change the screen to screen 2, for example
+                return 2;
+            }
+            else if(button2.handleInput(event, window))
+            {
+                // Change the screen to screen 3, for example
+                return 3;
+            }
+            else if(button3.handleInput(event, window))
+            {
+                return 0;
+            }
+        }
+        return -1;
+}
 
 
 

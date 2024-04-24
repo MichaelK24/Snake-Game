@@ -30,7 +30,8 @@ public:
     sf::Uint32 getState(){return mBtnState;};
 
     //This function update the button state and/or look
-    bool update(sf::Event& e, sf::RenderWindow& window);
+    bool handleInput(sf::Event &e, sf::RenderWindow& window);
+    void update();
     virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
     
@@ -47,6 +48,7 @@ private:
     sf::Font mFont;
     sf::Color mTextNormal;
     sf::Color mTextHover;
+    enum state mState;
 
 };
 

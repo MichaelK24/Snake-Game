@@ -46,9 +46,10 @@ Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Colo
     mTextNormal = sf::Color::Green;
     mTextHover = sf::Color::Green;
     mText.setFillColor(mTextNormal);
+    mState = normal;
 }
 
-bool Button::update(sf::Event &e, sf::RenderWindow &window)
+bool Button::handleInput(sf::Event &e, sf::RenderWindow& window)
 {
 //    //     //get position of the mouse
     sf::Vector2i mPos = sf::Mouse::getPosition(window);
@@ -61,11 +62,13 @@ bool Button::update(sf::Event &e, sf::RenderWindow &window)
     {
         if(mouseInButton)
         {
-            mText.setFillColor(mTextHover);
+            //mText.setFillColor(mTextHover);
+            mState= hovered;
         }
         else
         {
-            mText.setFillColor(mTextNormal);
+            //mText.setFillColor(mTextNormal);
+            mState = normal;
         }
     }
     if (e.type == sf::Event::MouseButtonPressed)
@@ -74,12 +77,14 @@ bool Button::update(sf::Event &e, sf::RenderWindow &window)
         {
             if(mouseInButton)
             {
-                mButton.setRotation(180);
+                //mButton.setRotation(180);
+                mState = clicked;
                 return true;
             }
             else
             {
-                mButton.setRotation(0);
+                //mButton.setRotation(0);
+                mState = normal;
             }
         }
     }
@@ -89,19 +94,37 @@ bool Button::update(sf::Event &e, sf::RenderWindow &window)
         {
             if(mouseInButton)
             {
-                mText.setFillColor(mTextHover);
-                mButton.setRotation(0);
+                mState = hovered;
+                //mText.setFillColor(mTextHover);
+                //mButton.setRotation(0);
             }
             else
             {
-                mText.setFillColor(mTextNormal);
-                mButton.setRotation(0);
+                mState = normal;
+                // mText.setFillColor(mTextNormal);
+                // mButton.setRotation(0);
             }
         }
     }
     return false;
 }
-
+void Button::update(){
+    switch (mState)
+    {
+    case normal:
+            mText.setFillColor(mTextNormal);
+            mButton.setRotation(0);
+        break;
+    case hovered:
+            mText.setFillColor(mTextHover);
+            mButton.setRotation(0);
+        break;
+    case clicked:
+            mText.setFillColor(mTextHover);
+            mButton.setRotation(180);
+        break;
+    }
+}
 
 void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {

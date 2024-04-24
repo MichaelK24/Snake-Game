@@ -11,7 +11,8 @@ public:
     WelcomeScreen(sf::RenderWindow& window);
 
     void draw(sf::RenderWindow& window);
-    void updateButtons(sf::Event &event, sf::RenderWindow& window);
+    void updateButtons();
+    int handleInput(sf::Event &event, sf::RenderWindow& window);
 
 
 

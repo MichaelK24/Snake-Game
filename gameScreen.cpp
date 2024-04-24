@@ -1,27 +1,33 @@
 #include "gameScreen.h"
 
-#include <iostream>
 
-GameScreen::GameScreen(sf::RenderWindow& window)//: 
-           // mBoard(),//fix
-            //mSnake()//fix
+GameScreen::GameScreen(sf::RenderWindow& window):mSnake(window)//fix
 {
-
+    
 }
 
 
 void GameScreen::draw(sf::RenderWindow& window)
 {
-    window.draw(mBoard);
-    window.draw(mSnake);
+   mSnake.draw(window);
 }
 
 
 
-void WelcomeScreen::updateButtons(sf::Event &event, sf::RenderWindow& window)
+void GameScreen::update()
 {
-    mBoard.update(event, window);
-    mSnake.update(event, window);
+    mSnake.update();
+}
+
+void GameScreen::handleInput(sf::Event &event)
+{
+    if (event.type == sf::Event::KeyPressed) 
+    { 
+        if (event.key.code == sf::Keyboard::Right) 
+        { 
+            std::cout << "right arrow key WAS pressed\n"; 
+        } 
+    }
 }
 
 

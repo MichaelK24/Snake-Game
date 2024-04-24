@@ -2,8 +2,8 @@
 #define GAME_SCREEN_H
 
 #include <SFML/Graphics.hpp>
-#include "board.h"
-#include "game.h"
+#include "snake.h"
+#include <iostream>
 
 class GameScreen
 {
@@ -11,10 +11,11 @@ public:
     GameScreen(sf::RenderWindow& window);
 
     void draw(sf::RenderWindow& window);
-    void update(sf::Event &event, sf::RenderWindow& window);
+    void update();
+    void handleInput(sf::Event &event);
 
 private:
-    Board mBoard;
+    //Board mBoard;
     Snake mSnake;
 
 };
