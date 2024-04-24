@@ -24,7 +24,7 @@ private:
     int score = 0;
     std::string lastMove;
     Board myBoard;
-    char board[17][17];
+    //char board[17][17];
     // int direction;
     // void pointGain(char apple, char snakeHead, int score);
     // void directionInput();
@@ -38,6 +38,7 @@ public:
     void turnInput();
     void actualTurn();
     void start();
+    void drawSnake();
 
     // void Colition();
     //char snakeHead = 's';

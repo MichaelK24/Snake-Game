@@ -26,6 +26,9 @@ WelcomeScreen::WelcomeScreen(sf::RenderWindow& window):
         std::cout << "Error opening file\n";
         exit(1);
     }
+std::cout<<texture.getSize().x<<std::endl;
+    background.setScale(2000/texture.getSize().x, 1000/texture.getSize().y);
+    
     header.setTexture(header1);
 
     // Button button3("START", {300, 700}, {375, 100}, sf::Color::Red);
@@ -48,10 +51,10 @@ WelcomeScreen::WelcomeScreen(sf::RenderWindow& window):
 
 void WelcomeScreen::draw(sf::RenderWindow& window)
 {
+//TODO: Move all sets to constructor.
     snake.setPosition(0.f, 50.f);
     snake.setScale(0.65, 0.65);
-    background.setPosition(0.f, 0.f);
-    background.setScale(1.5, 1.5);
+    //background.setScale(1.5, 1.5);
     window.draw(background); // Use mWindow instead of gameWindow
     window.draw(snake);       // Use mWindow instead of gameWindow
     header.setPosition(450.f, 150.f);
