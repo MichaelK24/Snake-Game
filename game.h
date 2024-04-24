@@ -4,7 +4,7 @@
 #include "snake.h"
 #include <iostream>
 #include "welcomeScreen.h"
-//#include "gameScreen.h"
+#include "gameScreen.h"
 // #include "button.h"
 
 class Game
@@ -19,13 +19,9 @@ public:
 private:
     sf::RenderWindow  mWindow;
     WelcomeScreen screen1;
-    //GameScreen screen2;
+    GameScreen screen2;
     int screen;
     bool mIsDone;
-    // sf::Texture mTextureTile;
-    // sf::CircleShape mCherryPlant;
-    // sf::Vector2i mIncrement;
-    // void moveCherry();
 
 };
 

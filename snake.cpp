@@ -11,67 +11,130 @@
 #include "snake.h"
 #include "board.h"
 
-Snake::Snake(Board myBoard) : myBoard(myBoard)
+Snake::Snake(sf::RenderWindow& window)
 {
-    dir = "right";
-    score = 0;
-    gameOver = false;
     start();
+
+    for (int i = 0; i <17; i++){
+        for (int j = 0; j <17; j++)
+        {
+            array[i][j].setSize({TileWidth, TileWidth});
+            array[i][j].setPosition(TOP.x +TileWidth*i, TOP.y+TileWidth*j);
+            array[i][j].setOrigin(array[i][j].getSize().x/2, array[i][j].getSize().y/2);
+            array[i][j].setFillColor(sf::Color::Blue);
+        }
+    }
 }
 
 void Snake::start()
 {
     Point initialPosition = {9,9};
     snake.push_back(initialPosition);
-    myBoard.board[initialPosition.x][initialPosition.y] = 'S';
+    dir = "right";
+    score = 0;
+    gameOver = false;
 }
 
 void Snake::eatApple()
 {
-    if(myBoard.board[snake.front().x][snake.front().y] == 'a'){
+    if(board[snake.front().x][snake.front().y] == 'a'){
         Point newBody = snake.back();
         snake.push_back(newBody);
         score++;
-        myBoard.placeapple(board,score);
+        //placeapple(board,score);
     }
 }
 
-void Snake::turnInput(){
-    keypad(stdscr,TRUE);
-    char c = getch();
-    if(c == 'w'){
-        dir = "up";
-    } else if(c == 's'){
-        dir = "down";
-    } else if(c == 'a'){
-        dir = "left";
-    } else if(c == 'd'){
-        dir == "right";
-    } else if(c == 'x'){
-        gameOver = true;
+void Snake::turnInput(sf::RenderWindow& window){
+    sf::Event evnt;
+    while(window.pollEvent(evnt)){
+        if(evnt.type == sf::Event::KeyPressed){
+            switch(evnt.key.code){
+                case sf::Keyboard::W:
+                dir = "up";
+                break;
+                
+                case sf::Keyboard::S:
+                dir = "down";
+                break;
+
+                case sf::Keyboard::A:
+                dir = "left";
+                break;
+
+                case sf::Keyboard::D:
+                dir = "right";
+                break;
+
+                case sf::Keyboard::Escape:
+                dir = "end";
+                break;
+            }
+        }
     }
+
 }
 
 void Snake::actualTurn()
 {
-    // After turnInput function we will initialize a char pointer variable called temp to be equal to the function actualTurn()
-    // Initialize char * called and set it equal to vector[0]. Code is on phone.
-    Point* ret = snake.front();
-    Point newH = ret;
+    Point newH = snake.front();
+
     if(dir == "up"){
         newH.y++;
+        //player.move(0.0,-1 * TileWidth);
     } else if(dir == "down"){
         newH.y--;
+        //player.move(0.0,TileWidth);
     } else if(dir == "right"){
         newH.x++;
+        //player.move(TileWidth,0.0);
     } else if(dir == "left"){
         newH.x--;
+        //player.move(-1 * TileWidth,0.0);
+    } else if(dir == "end"){
+        gameOver = true;
     }
-    snake.push_front(newH);
-    snake.pop_back();
+
+    if(newH.x > 17 || newH.x < 1 || newH.y > 17 || newH.y < 1){
+        gameOver = true;
+    }
+    //check if snake hits something
 }
 
-
+void Snake::draw(sf::RenderWindow& window){
+    for (int i = 0; i<17; i++)
+    {
+        for (int j = 0; j <17; j++)
+        {
+            window.draw(array[i][j]);
+        }
+    }
+    
+}
+//chande colo of array elements based on value of the board elements
+void Snake::update()
+{
+    for (int i = 0; i <17; i++){
+        for (int j = 0; j <17; j++)
+        {
+            switch (board[i][j])
+            {
+            case 'S':
+                array[i][j].setFillColor(sf::Color::Green);
+                break;
+            case 'A':
+                array[i][j].setFillColor(sf::Color::Red);
+                break;
+            case ' ':
+                array[i][j].setFillColor(sf::Color::Black);
+                break;
+            
+            default:
+                break;
+            }
+        }
+    }
+}
 
 // void Snake::gameOver(){
 //     if(function that determines that S touched H || function that determines that S touched ' '){
