@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game() : mWindow(sf::VideoMode(2000, 1000), "SFML works!"), screen1(mWindow)//, screen2(mWindow) 
+Game::Game() : mWindow(sf::VideoMode(2000, 1000), "SFML works!"), screen1(mWindow) //screen2(mWindow) 
 {
     screen = 1;
     mIsDone = false;
@@ -15,10 +15,11 @@ void Game::handleInput(sf::Event &event)
             // Close window button clicked.
             mWindow.close();
         }
-        //call handel input for difrent screens
-
+        
+        
     }
 }
+    
 
 void Game::update(sf::Event event)
 {

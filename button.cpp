@@ -48,7 +48,7 @@ Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Colo
     mText.setFillColor(mTextNormal);
 }
 
-void Button::update(sf::Event &e, sf::RenderWindow &window)
+bool Button::update(sf::Event &e, sf::RenderWindow &window)
 {
 //    //     //get position of the mouse
     sf::Vector2i mPos = sf::Mouse::getPosition(window);
@@ -75,6 +75,7 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
             if(mouseInButton)
             {
                 mButton.setRotation(180);
+                return true;
             }
             else
             {
@@ -98,6 +99,7 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
             }
         }
     }
+    return false;
 }
 
 
@@ -141,18 +143,6 @@ void Button::setColor(sf::Color btnColor)
     mButtonColor = btnColor;
     mButton.setColor(mButtonColor);
 }
-// bool Button::isClicked(sf::Event &e, sf::RenderWindow &window)
-// {
-//     if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left)
-//     {
-//         sf::Vector2f mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-//         sf::FloatRect bounds = mButton.getGlobalBounds();
-//         if (bounds.contains(mousePosition))
-//         {
-//             return true;
-//         }
-//     }
-//     return false;
-// }
+
 
 
