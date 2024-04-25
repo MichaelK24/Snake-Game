@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2024
  * 
  */
+/**
 #include "board.h"
 Board::Board()
 {
@@ -44,27 +45,4 @@ void Board::displayboard(char array[size][size])
         }
         cout<<std::endl;
     }
-}/*
-bool Board::greenblue(int row,int col)
-{
-    if(col%2==1)
-    {
-        if(row%2==0)
-        {
-            return true;
-
-        }else
-        {
-            return false;
-        }
-    
-    }else
-    if(row%2==0)
-    {
-        return false;
-    }else
-    {
-        return true;
-    }
 }
-*/
