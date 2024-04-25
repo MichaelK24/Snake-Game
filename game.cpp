@@ -2,7 +2,7 @@
 
 Game::Game() : mWindow(sf::VideoMode(2000, 1000), "SFML works!"), screen1(mWindow), screen2(mWindow) 
 {
-    screen = 2;//set to 2 to test snake
+    screen = 1;//set to 2 to test snake
     mIsDone = false;
 }
 //Handle events from input devices and the window
@@ -16,32 +16,43 @@ void Game::handleInput(sf::Event &event)
             mWindow.close();
         }
         //call handel input for difrent screens
-        switch(screen){
-            //case 1: 
-            case 2: screen2.handleInput(event);
+        int ret=-1;
+        switch(screen)
+        {
+            case 1:
+                ret = screen1.handleInput(event, mWindow); //0 mean game over
                 break;
+
+            case 2: 
+                screen2.handleInput(event);
+                break;
+            // case 3: //rules
+
+        }
+        
+        if (ret != -1)
+        {
+            screen = ret;
         }
 
     }
 }
+    
 
-void Game::update(sf::Event event)
+void Game::update()
 {
     switch (screen)
     {
+    case 0:
+        mIsDone=true;
+        break;
     case 1:
-        screen1.updateButtons(event, mWindow);
+        screen1.updateButtons();
         break;
     case 2:
-       screen2.update(mWindow);
+       screen2.update();
        break;
-    }
-    // case 2:
-    // //screeen2,update
-    
-    // default:
-    //     break;
-    // }  
+    } 
 }
 
 bool Game::isDone() const

@@ -14,22 +14,22 @@ void GameScreen::draw(sf::RenderWindow& window)
 
 
 
-void GameScreen::update(sf::RenderWindow& window)
+void GameScreen::update()
 {
-    //mBoard.update(event, window);
     mSnake.update();
     mSnake.turnInput(window);
     mSnake.actualTurn();
 }
 
-void GameScreen::handleInput(sf::Event &event){
+void GameScreen::handleInput(sf::Event &event)
+{
     if (event.type == sf::Event::KeyPressed) 
-            { 
-                if (event.key.code == sf::Keyboard::Right) 
-                { 
-                    std::cout << "right arrow key WAS pressed\n"; 
-                } 
-            }
+    { 
+        if (event.key.code == sf::Keyboard::Right) 
+        { 
+            std::cout << "right arrow key WAS pressed\n"; 
+        } 
+    }
 }
 
 

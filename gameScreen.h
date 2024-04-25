@@ -11,7 +11,7 @@ public:
     GameScreen(sf::RenderWindow& window);
 
     void draw(sf::RenderWindow& window);
-    void update(sf::RenderWindow& window);
+    void update();
     void handleInput(sf::Event &event);
 
 private:

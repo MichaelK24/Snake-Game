@@ -34,7 +34,7 @@ int main()
         while (timeSinceLastUpdate > TIME_PER_FRAME)
         {
             timeSinceLastUpdate -= TIME_PER_FRAME;
-            game.update(event);
+            game.update();
         }
 
         game.render();

@@ -13,7 +13,7 @@ public:
     Game();
     ~Game(){};
     void handleInput(sf::Event &event);
-    void update(sf::Event event);
+    void update();
     void render();
     bool isDone() const;
 private:
