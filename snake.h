@@ -18,7 +18,7 @@
 #include <SFML/Graphics.hpp>
 #include "board.h"
 
-const float TileWidth = 85; //sqrt(sf::VideoMode::getDesktopMode().width * sf ::VideoMode::getDesktopMode().height)/(17*17);
+const float TileWidth = 55; //sqrt(sf::VideoMode::getDesktopMode().width * sf ::VideoMode::getDesktopMode().height)/(17*17);
 //sf::RectangleShape player(sf::Vector2f(TileWidth,TileWidth));
 //tile width is equal to the square root of the length and width of the window, all divided by 17 squared
 const sf::Vector2f TOP = {10, 10};

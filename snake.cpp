@@ -19,17 +19,21 @@ Snake::Snake(sf::RenderWindow& window)
         for (int j = 0; j <17; j++)
         {
             array[i][j].setSize({TileWidth, TileWidth});
-            array[i][j].setPosition(TOP.x +TileWidth*i, TOP.y+TileWidth*j);
+            array[i][j].setPosition(TOP.x + TileWidth*i+35, TOP.y + TileWidth*j+35);
             array[i][j].setOrigin(array[i][j].getSize().x/2, array[i][j].getSize().y/2);
             array[i][j].setFillColor(sf::Color::Blue);
+            array[i][j].setOutlineThickness(1);
+            array[i][j].setOutlineColor(sf::Color::Red);
         }
     }
 }
 
 void Snake::start()
 {
-    Point initialPosition = {9,9};
+    Point initialPosition = {7,7};
     snake.push_back(initialPosition);
+    board[7][7] = 'S';
+    board[11][7] = 'A';
     dir = "right";
     score = 0;
     gameOver = false;
@@ -37,7 +41,7 @@ void Snake::start()
 
 void Snake::eatApple()
 {
-    if(board[snake.front().x][snake.front().y] == 'a'){
+    if(board[snake.front().x][snake.front().y] == 'A'){
         Point newBody = snake.back();
         snake.push_back(newBody);
         score++;
@@ -127,8 +131,7 @@ void Snake::update()
                 break;
             case ' ':
                 array[i][j].setFillColor(sf::Color::Black);
-                break;
-            
+                break;           
             default:
                 break;
             }

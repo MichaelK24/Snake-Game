@@ -18,6 +18,8 @@ void GameScreen::update(sf::RenderWindow& window)
 {
     //mBoard.update(event, window);
     mSnake.update();
+    mSnake.turnInput(window);
+    mSnake.actualTurn();
 }
 
 void GameScreen::handleInput(sf::Event &event){
