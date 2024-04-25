@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2024
  * 
  */
+
 #include <iostream>
 using namespace std;
 #include <stdlib.h>     /* srand, rand */
@@ -17,6 +18,7 @@ using namespace std;
 #ifndef BOARD_H
 #define BOARD_H
 static int const size=17;
+/**
 class Board
 {
 private:
