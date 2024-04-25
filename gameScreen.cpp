@@ -8,6 +8,7 @@ GameScreen::GameScreen(sf::RenderWindow& window) : mSnake(window) // Assuming mS
     {
         cout<<"error loading board Texture."<<endl;
     }
+    
     sf::Sprite sprite;
     sprite.setTexture(texture);
     sprite.setScale(static_cast<float>(window.getSize().x) / texture.getSize().x,static_cast<float>(window.getSize().y) / texture.getSize().y);
