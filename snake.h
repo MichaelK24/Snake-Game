@@ -46,7 +46,7 @@ public:
     
     Snake(sf::RenderWindow& window);
     void eatApple();
-    void turnInput(sf::RenderWindow& window);
+    void turnInput(sf::Event &evnt);
     void start();
     void draw(sf::RenderWindow& window);
     void actualTurn();
