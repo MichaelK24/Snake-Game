@@ -12,6 +12,8 @@
 using namespace std;
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
+#include <SFML/Graphics.hpp>
+
 #ifndef BOARD_H
 #define BOARD_H
 static int const size=17;
