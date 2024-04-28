@@ -3,21 +3,27 @@
 
 GameScreen::GameScreen(sf::RenderWindow& window) : mSnake(window) // Assuming mSnake is your game object
 {
-    sf::Texture texture;
-    if (!texture.loadFromFile("boardupdat.jpg"))
+    if (!mTexture.loadFromFile("images/boardupdat.jpg"))
     {
-        cout<<"error loading board Texture."<<endl;
+        std::cout<<"error loading board Texture."<< std::endl;
     }
+    // if (!texture.loadFromFile("images/snakeScreen.png"))
+    // {
+    //     std::cout << "Error opening file\n";
+    //     exit(1);
+    // }
     
-    sf::Sprite sprite;
-    sprite.setTexture(texture);
-    sprite.setScale(static_cast<float>(window.getSize().x) / texture.getSize().x,static_cast<float>(window.getSize().y) / texture.getSize().y);
-    window.draw(sprite);
+    mBackground.setTexture(mTexture);
+    mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
 }
 
 void GameScreen::draw(sf::RenderWindow& window)
 {
+   window.draw(mBackground);
    mSnake.draw(window);
+   if (gameOver){
+    //draw game over on top
+   }
 }
 
 
@@ -27,7 +33,7 @@ void GameScreen::update()
     mSnake.update();
 }
 
-void GameScreen::handleInput(sf::Event &event)
+int GameScreen::handleInput(sf::Event &event)
 {
     // if (event.type == sf::Event::KeyPressed) 
     // { 
@@ -37,8 +43,16 @@ void GameScreen::handleInput(sf::Event &event)
             
     //     } 
     // }
-    mSnake.turnInput(event);
-    mSnake.actualTurn();
+    if (!gameOver){
+       mSnake.turnInput(event); 
+       gameOver = mSnake.actualTurn();
+       return 2;//stil in game
+    }else{
+        //check if user press anithing
+        return 1;
+    }
+    
+    
 }
 
 

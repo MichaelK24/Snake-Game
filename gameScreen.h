@@ -12,11 +12,14 @@ public:
 
     void draw(sf::RenderWindow& window);
     void update();
-    void handleInput(sf::Event &event);
+    int handleInput(sf::Event &event);
 
 private:
     //Board mBoard;
+    sf::Sprite mBackground;
     Snake mSnake;
+    sf::Texture mTexture;
+    bool gameOver;
 
 };
 

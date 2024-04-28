@@ -9,11 +9,20 @@
  * 
  */
 #include "snake.h"
-#include "board.h"
 
 Snake::Snake(sf::RenderWindow& window)
 {
-    start();
+    
+    initBoard();
+    board[7][7] = 'S';
+    board[11][7] = 'A';
+
+    Point initialPosition = {7,7};
+    snake.push_back(initialPosition);
+    dir = " ";
+    score = 0;
+    gameOver = false;
+    update();
 
     for (int i = 0; i <17; i++){
         for (int j = 0; j <17; j++)
@@ -27,18 +36,37 @@ Snake::Snake(sf::RenderWindow& window)
         }
     }
 }
-
-void Snake::start()
+void Snake::initBoard()
 {
-    update();
-    Point initialPosition = {7,7};
-    snake.push_back(initialPosition);
-    board[7][7] = 'S';
-    board[11][7] = 'A';
-    dir = " ";
-    score = 0;
-    gameOver = false;
-    update();
+    for (int i = 0; i <17; i++){
+        for (int j = 0; j <17; j++)
+        {
+            board[i][j] = ' ';
+        }
+    }
+}
+//chande colo of array elements based on value of the board elements
+void Snake::update()
+{
+    for (int i = 0; i <17; i++){
+        for (int j = 0; j <17; j++)
+        {
+            switch (board[i][j])
+            {
+            case 'S':
+                array[i][j].setFillColor(sf::Color::Green);//make duck green
+                break;
+            case 'A':
+                array[i][j].setFillColor(sf::Color::Red);
+                break;
+            case 's':
+                array[i][j].setFillColor(sf::Color::Green);
+                break;           
+            default:
+                array[i][j].setFillColor(sf::Color::Blue);
+            }
+        }
+    }
 }
 
 // void Snake::eatApple()
@@ -56,23 +84,23 @@ void Snake::turnInput(sf::Event &evnt){
         if(evnt.type == sf::Event::KeyPressed){
             switch(evnt.key.code){
                 case sf::Keyboard::W:
-                dir = "up";
+                    dir = "up";
                 break;
                 
                 case sf::Keyboard::S:
-                dir = "down";
+                    dir = "down";
                 break;
 
                 case sf::Keyboard::A:
-                dir = "left";
+                    dir = "left";
                 break;
 
                 case sf::Keyboard::D:
-                dir = "right";
+                    dir = "right";
                 break;
 
                 case sf::Keyboard::Escape:
-                dir = "end";
+                    dir = "end";
                 break;
             }
         }
@@ -80,16 +108,16 @@ void Snake::turnInput(sf::Event &evnt){
 
 }
 
-void Snake::actualTurn()
+bool Snake::actualTurn()
 {
     Point newH = snake.front();
 
     if(dir == "up"){
         newH.y--;
-
         //player.move(0.0,-1 * TileWidth);
     } else if(dir == "down"){
         newH.y++;
+
         //player.move(0.0,TileWidth);
     } else if(dir == "right"){
         newH.x++;
@@ -98,25 +126,25 @@ void Snake::actualTurn()
         newH.x--;
         //player.move(-1 * TileWidth,0.0);
     } else if(dir == "end"){
-        gameOver = true;
-        cout << "Game Over" << endl;
-        exit(0);
+        //gameOver = true;
+        std::cout << "Game Over" << std::endl;
+        return true;
     }
 
     if(newH.x >= 17 || newH.x < 1 || newH.y >= 17 || newH.y < 1){
-        gameOver = true;
-        exit(0);
+        //gameOver = true;
+        return true;
     }
 
     for(int i = 0; i < snake.size()-1; i++){
         if(snake[i].x == newH.x && snake[i].y == newH.y){
-            cout<< "Game Over" << endl;
-            exit(1);
+            std::cout<< "Game Over" << std::endl;
+            return true;
         }
     }
 
     //check if snake hits something
-        if(board[newH.x][newH.y] == 'A'){
+    if(board[newH.x][newH.y] == 'A'){
         score++;
         srand (time(NULL));
         int row,col;
@@ -134,7 +162,7 @@ void Snake::actualTurn()
 
     snake.insert(snake.begin(),newH);
     board[newH.x][newH.y] = 'S';
-
+    return false;
 }
 
 void Snake::draw(sf::RenderWindow& window){
@@ -147,29 +175,7 @@ void Snake::draw(sf::RenderWindow& window){
     }
     
 }
-//chande colo of array elements based on value of the board elements
-void Snake::update()
-{
-    for (int i = 0; i <17; i++){
-        for (int j = 0; j <17; j++)
-        {
-            switch (board[i][j])
-            {
-            case 'S':
-                array[i][j].setFillColor(sf::Color::Green);
-                break;
-            case 'A':
-                array[i][j].setFillColor(sf::Color::Red);
-                break;
-            case ' ':
-                array[i][j].setFillColor(sf::Color::Blue);
-                break;           
-            default:
-                break;
-            }
-        }
-    }
-}
+
 
 // void Snake::gameOver(){
 //     if(function that determines that S touched H || function that determines that S touched ' '){

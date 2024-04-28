@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2024
  * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
  */
-#include "board.h"
 #include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
