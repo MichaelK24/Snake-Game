@@ -3,9 +3,9 @@
 #include <iostream>
 
 WelcomeScreen::WelcomeScreen(sf::RenderWindow& window): 
-            button3("START", {300, 700}, {375, 100}, sf::Color::Red),
+            button1("START", {300, 700}, {375, 100}, sf::Color::Red),
             button2("RULES", {700, 700}, {375, 100}, sf::Color::Red),
-            button1("EXIT", {1100, 700}, {375, 100}, sf::Color::Red) //: mWindow(window)
+            button3("EXIT", {1100, 700}, {375, 100}, sf::Color::Red) //: mWindow(window)
 {
     if (!texture.loadFromFile("images/snakeScreen.png"))
     {

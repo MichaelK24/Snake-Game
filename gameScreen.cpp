@@ -6,7 +6,7 @@ GameScreen::GameScreen(sf::RenderWindow& window) : mSnake(window) // Assuming mS
     sf::Texture texture;
     if (!texture.loadFromFile("boardupdat.jpg"))
     {
-        cout<<"error loading board Texture."<<endl;
+        std::cout<<"error loading board Texture."<<std::endl;
     }
     
     sf::Sprite sprite;
