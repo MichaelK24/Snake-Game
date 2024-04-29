@@ -1,3 +1,13 @@
+/**
+ * @file board.h
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-04-29
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -36,7 +46,7 @@ private:
     float startX, startY;
 
     void processEvents();
-    void update();
+    void update(); 
     void render();
     void releaseResources(); 
 };
