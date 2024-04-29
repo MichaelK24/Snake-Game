@@ -14,7 +14,7 @@ Snake::Snake(sf::RenderWindow& window)
 {
     
     initBoard();
-    board[7][7] = 'S';
+    board[7][7] = 's';
     board[11][7] = 'A';
 
     Point initialPosition = {7,7};
@@ -36,6 +36,11 @@ Snake::Snake(sf::RenderWindow& window)
         }
     }
 }
+
+// Snake::~Snake(){
+
+// }
+
 void Snake::initBoard()
 {
     for (int i = 0; i <17; i++){
@@ -60,7 +65,7 @@ void Snake::update()
                 array[i][j].setFillColor(sf::Color::Red);
                 break;
             case 's':
-                array[i][j].setFillColor(sf::Color::Green);
+                array[i][j].setFillColor(sf::Color::Yellow);
                 break;           
             default:
                 array[i][j].setFillColor(sf::Color::Blue);
@@ -101,6 +106,8 @@ void Snake::turnInput(sf::Event &evnt){
 
                 case sf::Keyboard::Escape:
                     dir = "end";
+                break;
+                default:
                 break;
             }
         }

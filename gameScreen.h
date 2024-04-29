@@ -6,6 +6,7 @@
 #include "snake.h"
 #include "board.h"
 #include <iostream>
+#include <unistd.h>
 
 class GameScreen
 {

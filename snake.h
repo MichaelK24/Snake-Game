@@ -52,6 +52,7 @@ public:
     void draw(sf::RenderWindow& window);
     bool actualTurn();
     void update();
+    // ~Snake();
 
     // void Colition();
     //char snakeHead = 's';
