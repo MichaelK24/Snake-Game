@@ -1,4 +1,4 @@
-# Snake-Game
+![image](https://github.com/MichaelK24/Snake-Game/assets/122942295/4a5699ef-b06e-4671-bf3a-f01060d5c48f)# Snake-Game
 C++ implementation of snake game
 
 Instructions:
@@ -20,9 +20,10 @@ Your score increases each time the snake eats food.
 The longer the snake grows, the higher your score will be.
 Your High score will be saved in a file and displayed at the end of the game!
 
-
-Implementation: 
-
 Documentation: 
 
 Pictures:
+![image](https://github.com/MichaelK24/Snake-Game/assets/122942295/6a3fc434-9a6d-435f-bde7-22e746d65d08)
+
+![image](https://github.com/MichaelK24/Snake-Game/assets/122942295/3dce311e-405c-4733-b774-fce75e6b70f3)
+
