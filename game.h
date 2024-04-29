@@ -1,6 +1,5 @@
 #ifndef GAME_H
 #define GAME_H
-#include "board.h"
 #include "snake.h"
 #include <iostream>
 #include "welcomeScreen.h"

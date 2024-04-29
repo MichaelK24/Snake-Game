@@ -24,7 +24,7 @@ void Game::handleInput(sf::Event &event)
                 break;
 
             case 2: 
-                screen2.handleInput(event);
+                ret = screen2.handleInput(event);
                 break;
             // case 3: //rules
 
