@@ -136,7 +136,7 @@ bool Snake::actualTurn()
         return true;
     }
 
-    for(int i = 0; i < snake.size()-1; i++){
+    for(unsigned i = 0; i < snake.size()-1; i++){
         if(snake[i].x == newH.x && snake[i].y == newH.y){
             std::cout<< "Game Over" << std::endl;
             return true;
