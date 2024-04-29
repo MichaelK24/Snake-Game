@@ -75,8 +75,8 @@ int WelcomeScreen::handleInput(sf::Event &event, sf::RenderWindow& window)
             }
             else if(button3.handleInput(event, window))
             {
-                Board board(window);
-                board.run();
+                //Board board(window);//should be in game screen
+                //board.run();
                 
                 return 0;
             }
