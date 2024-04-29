@@ -43,9 +43,11 @@ int GameScreen::handleInput(sf::Event &event)
     if (!gameOver){
        mSnake.turnInput(event); 
        gameOver = mSnake.actualTurn();
+       usleep(40);
        return 2;//stil in game
     }else{
         //check if user press anithing
+        //~mSnake();
         return 1;
     }
     

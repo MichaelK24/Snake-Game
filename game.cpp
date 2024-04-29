@@ -8,7 +8,7 @@
  */
 #include "game.h"
 
-Game::Game() : mWindow(sf::VideoMode(2000, 1000), "SFML works!"), screen1(mWindow), screen2(mWindow), screen3(mWindow)
+Game::Game() : mWindow(sf::VideoMode(1400, 800), "SFML works!"), screen1(mWindow), screen2(mWindow), screen3(mWindow)
 {
     screen = 1;//set to 2 to test snake
     mIsDone = false;
