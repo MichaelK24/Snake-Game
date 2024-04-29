@@ -1,17 +1,18 @@
 #include "gameScreen.h"
 
 
-GameScreen::GameScreen(sf::RenderWindow& window) : mSnake(window) // Assuming mSnake is your game object
+GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window),mSnake(window) // Assuming mSnake is your game object
 {
 
-    
-    mBackground.setTexture(mTexture);
-    mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
+    //replace with board class
+    //mBackground.setTexture(mTexture);
+    //mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
 }
 
 void GameScreen::draw(sf::RenderWindow& window)
 {
-   window.draw(mBackground);
+   //window.draw(mBackground);
+   mBoard.render(window);
    mSnake.draw(window);
    if (gameOver){
     //draw game over on top

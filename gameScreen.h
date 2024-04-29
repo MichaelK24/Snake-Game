@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "snake.h"
+#include "board.h"
 #include <iostream>
 
 class GameScreen
@@ -15,7 +16,7 @@ public:
     int handleInput(sf::Event &event);
 
 private:
-    //Board mBoard;
+    Board mBoard;
     sf::Sprite mBackground;
     Snake mSnake;
     sf::Texture mTexture;
