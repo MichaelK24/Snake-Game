@@ -1,4 +1,5 @@
 #include "welcomeScreen.h"
+#include "board.h"
 
 #include <iostream>
 
@@ -65,8 +66,7 @@ int WelcomeScreen::handleInput(sf::Event &event, sf::RenderWindow& window)
             // Check if any of the buttons are clicked
             if(button1.handleInput(event, window))
             {
-                // Change the screen to screen 2, for example
-                return 2;
+                return 1;
             }
             else if(button2.handleInput(event, window))
             {
@@ -75,6 +75,9 @@ int WelcomeScreen::handleInput(sf::Event &event, sf::RenderWindow& window)
             }
             else if(button3.handleInput(event, window))
             {
+                Board board(window);
+                board.run();
+                
                 return 0;
             }
         }

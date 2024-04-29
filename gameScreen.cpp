@@ -3,15 +3,7 @@
 
 GameScreen::GameScreen(sf::RenderWindow& window) : mSnake(window) // Assuming mSnake is your game object
 {
-    if (!mTexture.loadFromFile("images/boardupdat.jpg"))
-    {
-        std::cout<<"error loading board Texture."<< std::endl;
-    }
-    // if (!texture.loadFromFile("images/snakeScreen.png"))
-    // {
-    //     std::cout << "Error opening file\n";
-    //     exit(1);
-    // }
+
     
     mBackground.setTexture(mTexture);
     mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
