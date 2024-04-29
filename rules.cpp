@@ -8,12 +8,12 @@ Rules::Rules(sf::RenderWindow& window): backButton("Menu", {300, 700}, {375, 100
         exit(1);
     }
     rulesBackground2.setTexture(rulesBackground1);
+    rulesBackground2.setScale(0.25, 0.25);
 
 }
 
 void Rules::draw(sf::RenderWindow& window)
 {
-    rulesBackground2.setScale(0.25, 0.25);
     window.draw(rulesBackground2); 
     window.draw(backButton); // Draw the button
 }
@@ -34,3 +34,7 @@ int Rules::handleInput(sf::Event &event, sf::RenderWindow& window)
         }
         return -1;
 }
+
+#include "rules.h"
+
+

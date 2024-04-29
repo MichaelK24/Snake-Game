@@ -128,7 +128,7 @@ void Board::update()
 
 void Board::render() 
 {
-    window.clear();
+    //window.clear();
 
     window.draw(bgSprite);
     window.draw(snakeSprite);

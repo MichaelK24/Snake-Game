@@ -22,6 +22,7 @@ private:
     sf::Texture rulesBackground1;
     sf::Sprite rulesBackground2;
     Button backButton;
+    // sf::Font font;
 
 };
 

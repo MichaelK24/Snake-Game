@@ -21,6 +21,7 @@ public:
 
     void run();
     void switchToGameOverScreen(); //game over screen 
+    void render();
 
 private:
     sf::RenderWindow& window; // Reference to the existing window
@@ -47,7 +48,7 @@ private:
 
     void processEvents();
     void update(); 
-    void render();
+    //void render();
     void releaseResources(); 
 };
 #endif // BOARD_H
