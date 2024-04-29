@@ -1,8 +1,21 @@
+/**
+ * @file WelcomeScreen.cpp
+ * @author Yolexis Rodriguez
+ * @brief Represents the welcome screen of a game and includes buttons for starting the game, viewing the rules, and exiting.
+ * @date 04/29/2024
+ * 
+ * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+ */
+
 #include "welcomeScreen.h"
 #include "board.h"
 
 #include <iostream>
 
+/**
+ * @brief Constructor
+ * 
+ */
 WelcomeScreen::WelcomeScreen(sf::RenderWindow& window): 
             button1("START", {300, 700}, {375, 100}, sf::Color::Red),
             button2("RULES", {700, 700}, {375, 100}, sf::Color::Red),
@@ -31,15 +44,20 @@ WelcomeScreen::WelcomeScreen(sf::RenderWindow& window):
     // background.setScale(2000/texture.getSize().x, 1000/texture.getSize().y);
     
     header.setTexture(header1);
+    background.setScale(1.5, 1.5);
+    snake.setPosition(0.f, 50.f);
+    snake.setScale(0.65, 0.65);
 }
 
-
+/**
+ * @brief functions that draw the images to the window
+ * 
+ * @param window 
+ * @return ** void 
+ */
 void WelcomeScreen::draw(sf::RenderWindow& window)
 {
 //TODO: Move all sets to constructor.
-    snake.setPosition(0.f, 50.f);
-    snake.setScale(0.65, 0.65);
-    background.setScale(1.5, 1.5);
     window.draw(background); // Use mWindow instead of gameWindow
     window.draw(snake);       // Use mWindow instead of gameWindow
     header.setPosition(450.f, 150.f);
@@ -58,7 +76,13 @@ void WelcomeScreen::updateButtons()
     button3.update();
 }
 
-//call handel input for difrent screens
+/**
+ * @brief Function that call handel input for difrent screens
+ * 
+ * @param event 
+ * @param window 
+ * @return ** int 
+ */
 int WelcomeScreen::handleInput(sf::Event &event, sf::RenderWindow& window)
 {
         if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)

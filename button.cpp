@@ -1,3 +1,11 @@
+/**
+ * @file button.cpp
+ * @author Yolexis Rodriguez
+ * @brief this functions handle the buttons ojn the welcome screen and rules screen
+ * @date 04/29/2024
+ * 
+ * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+ */
 #include "button.h"
 
 

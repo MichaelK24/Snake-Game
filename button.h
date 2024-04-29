@@ -1,3 +1,11 @@
+/**
+ * @file button.h
+ * @author Yolexis Rodriguez
+ * @brief this functions huse guard code and implememt functions prototype
+ * @date 04/29/2024
+ * 
+ * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+ */
 #ifndef BUTTON_H
 #define BUTTON_H
 #include <iostream>
