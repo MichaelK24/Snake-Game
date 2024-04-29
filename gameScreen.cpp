@@ -15,9 +15,8 @@ GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window), mSnake(window
 
 void GameScreen::draw(sf::RenderWindow& window)
 {
-   window.clear();
    //window.draw(mBackground);
-   mBoard.render();
+   mBoard.render(window);
    mSnake.draw(window);
    if (gameOver){
     //draw game over on top

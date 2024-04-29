@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "board.h"
 #include "snake.h"
+#include "board.h"
 #include <iostream>
 
 class GameScreen
@@ -17,7 +18,7 @@ public:
 
 private:
     Board mBoard;
-   // sf::Sprite mBackground;
+    sf::Sprite mBackground;
     Snake mSnake;
    // sf::Texture mTexture;
     bool gameOver;

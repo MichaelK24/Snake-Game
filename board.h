@@ -16,15 +16,15 @@
 
 class Board {
 public:
-    Board(sf::RenderWindow& existingWindow); // Pass the existing window as a reference
+    Board(sf::RenderWindow& window); // Pass the existing window as a reference
     ~Board(); // Destructor
 
-    void run();
+    //void run();
     void switchToGameOverScreen(); //game over screen 
-    void render();
+    void render(sf::RenderWindow& window);
 
 private:
-    sf::RenderWindow& window; // Reference to the existing window
+    //sf::RenderWindow& window; // Reference to the existing window
     sf::Sprite bgSprite;
     sf::Texture bgTexture;
     sf::Texture texture1, texture2;
@@ -46,9 +46,8 @@ private:
     const float imageSize;
     float startX, startY;
 
-    void processEvents();
-    void update(); 
-    //void render();
+    // void processEvents();
+    // void update(); 
     void releaseResources(); 
 };
 #endif // BOARD_H

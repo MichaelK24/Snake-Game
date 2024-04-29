@@ -25,9 +25,9 @@ private:
     sf::Sprite background;
     sf::Texture header1;
     sf::Sprite header;
-    Button button3;
-    Button button2;
     Button button1;
+    Button button2;
+    Button button3;
 
 };
 

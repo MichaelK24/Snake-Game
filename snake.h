@@ -12,7 +12,7 @@
 #define SNAKE_H
 #include <iostream>
 #include <vector>
-#include <ncurses.h>
+//#include <ncurses.h>
 #include <cmath>
 #include <cstdlib>
 #include <SFML/Graphics.hpp>

@@ -49,9 +49,9 @@
  * 
  */
 
-Board::Board(sf::RenderWindow& existingWindow) :
-    window(existingWindow),
-    bgTexture(), 
+Board::Board(sf::RenderWindow& window) :
+    //window(existingWindow),
+    //bgTexture(), 
     score(0),
     highscore(0),
     gridSize(14),
@@ -101,38 +101,38 @@ Board::~Board()
     releaseResources();
 }
 
-void Board::run() 
-{
-    while (window.isOpen()) {
-        processEvents();
-        update();
-        render();
-    }
-}
+// void Board::run() 
+// {
+//     while (window.isOpen()) {
+//         processEvents();
+//         update();
+//         render();
+//     }
+// }
 
-void Board::processEvents() 
-{
-    sf::Event event;
-    while (window.pollEvent(event)) 
-    {
-        if (event.type==sf::Event::Closed) {
-            window.close();
-        }
-    }
-}
+// void Board::processEvents() 
+// {
+//     sf::Event event;
+//     while (window.pollEvent(event)) 
+//     {
+//         if (event.type==sf::Event::Closed) {
+//             window.close();
+//         }
+//     }
+// }
 
-void Board::update() 
-{
+// void Board::update() 
+// {
 
-}
+// }
 
-void Board::render() 
+void Board::render(sf::RenderWindow& window) 
 {
     //window.clear();
 
     window.draw(bgSprite);
     window.draw(snakeSprite);
-
+    //set position should be done in constructor, since you don't need chande it
     for (int y = 0; y < gridSize; ++y) 
     {
         for (int x = 0; x < gridSize; ++x) 
@@ -178,13 +178,14 @@ void Board::render()
     appleSprite.setPosition(700.0f * 1.75f, 500.0f * 1.333333f);
     window.draw(appleSprite);
 
-    window.display();
+    //window.display();
 }
 
 void Board::releaseResources() {
-    bgTexture.~Texture();
-    texture1.~Texture();
-    texture2.~Texture();
-    appleTexture.~Texture();
-    snakeTexture.~Texture();
+    // bgTexture.~Texture();
+    // texture1.~Texture();
+    // texture2.~Texture();
+    // appleTexture.~Texture();
+    // snakeTexture.~Texture();
 }
+
