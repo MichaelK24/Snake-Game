@@ -4,9 +4,9 @@
 #include <iostream>
 
 WelcomeScreen::WelcomeScreen(sf::RenderWindow& window): 
-            button3("START", {300, 700}, {375, 100}, sf::Color::Red),
+            button1("START", {300, 700}, {375, 100}, sf::Color::Red),
             button2("RULES", {700, 700}, {375, 100}, sf::Color::Red),
-            button1("EXIT", {1100, 700}, {375, 100}, sf::Color::Red) //: mWindow(window)
+            button3("EXIT", {1100, 700}, {375, 100}, sf::Color::Red) //: mWindow(window)
 {
     if (!texture.loadFromFile("images/snakeScreen.png"))
     {
@@ -66,18 +66,16 @@ int WelcomeScreen::handleInput(sf::Event &event, sf::RenderWindow& window)
             // Check if any of the buttons are clicked
             if(button1.handleInput(event, window))
             {
-                return 1;
+                // Change the screen to screen 2, game
+                return 2;
             }
             else if(button2.handleInput(event, window))
             {
-                // Change the screen to screen 3, for example
+                // Change the screen to screen 3, rules
                 return 3;
             }
             else if(button3.handleInput(event, window))
             {
-                //Board board(window);//should be in game screen
-                //board.run();
-                
                 return 0;
             }
         }

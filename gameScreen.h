@@ -2,6 +2,7 @@
 #define GAME_SCREEN_H
 
 #include <SFML/Graphics.hpp>
+#include "board.h"
 #include "snake.h"
 #include "board.h"
 #include <iostream>
@@ -19,9 +20,8 @@ private:
     Board mBoard;
     sf::Sprite mBackground;
     Snake mSnake;
-    sf::Texture mTexture;
+   // sf::Texture mTexture;
     bool gameOver;
-
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include <iostream>
 #include "welcomeScreen.h"
 #include "gameScreen.h"
+#include "rules.h"
 // #include "button.h"
 
 class Game
@@ -19,6 +20,7 @@ private:
     sf::RenderWindow  mWindow;
     WelcomeScreen screen1;
     GameScreen screen2;
+    Rules screen3;
     int screen;
     bool mIsDone;
 

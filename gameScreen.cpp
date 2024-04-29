@@ -1,12 +1,16 @@
 #include "gameScreen.h"
 
 
-GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window),mSnake(window) // Assuming mSnake is your game object
+GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window), mSnake(window) // Assuming mSnake is your game object
 {
-
-    //replace with board class
-    //mBackground.setTexture(mTexture);
-    //mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
+    // sf::Texture texture;
+    // if (!texture.loadFromFile("boardupdat.jpg"))
+    // {
+    //     std::cout<<"error loading board Texture."<<std::endl;
+    // }
+    
+   // mBackground.setTexture(mTexture);
+   // mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
 }
 
 void GameScreen::draw(sf::RenderWindow& window)

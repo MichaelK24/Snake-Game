@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game() : mWindow(sf::VideoMode(1400, 800), "SFML works!"), screen1(mWindow), screen2(mWindow) 
+Game::Game() : mWindow(sf::VideoMode(2000, 1000), "SFML works!"), screen1(mWindow), screen2(mWindow), screen3(mWindow)
 {
     screen = 1;//set to 2 to test snake
     mIsDone = false;
@@ -28,8 +28,13 @@ void Game::handleInput(sf::Event &event)
                 break;
             // case 3: //rules
 
+            case 3: 
+                //screen3.handleInput(event);
+                ret = screen3.handleInput(event, mWindow); //0 mean game over
+                break;
+
         }
-        
+
         if (ret != -1)
         {
             screen = ret;
@@ -52,6 +57,9 @@ void Game::update()
     case 2:
        screen2.update();
        break;
+    case 3:
+       screen3.updateButtons();
+       break;
     } 
 }
 
@@ -69,6 +77,8 @@ void Game::render()
             break;
         case 2: screen2.draw(mWindow);
             break;
+        case 3: screen3.draw(mWindow);
+            break;  
     }
         
     
