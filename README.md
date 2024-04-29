@@ -23,6 +23,7 @@ Your High score will be saved in a file and displayed at the end of the game!
 Documentation: 
 
 Pictures:
-![image](https://github.com/MichaelK24/Snake-Game/assets/122942295/a2eea4e3-bf2a-4e03-86a3-ee48e66b5aa8)
+![image](https://github.com/MichaelK24/Snake-Game/assets/122942295/6a3fc434-9a6d-435f-bde7-22e746d65d08)
+
 ![image](https://github.com/MichaelK24/Snake-Game/assets/122942295/3dce311e-405c-4733-b774-fce75e6b70f3)
 
