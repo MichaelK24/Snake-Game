@@ -52,8 +52,6 @@
 Board::Board(sf::RenderWindow& window) :
     //window(existingWindow),
     //bgTexture(), 
-    score(0),
-    highscore(0),
     gridSize(14),
     imageSize(40.0f) {
     if (!bgTexture.loadFromFile("images/green.jpg") || 
@@ -132,23 +130,11 @@ void Board::render(sf::RenderWindow& window)
 
     window.draw(bgSprite);
     window.draw(snakeSprite);
-    //set position should be done in constructor, since you don't need chande it
-    for (int y = 0; y < gridSize; ++y) 
-    {
-        for (int x = 0; x < gridSize; ++x) 
-        {
-            if ((x + y) % 2 == 0) {
-                sprite1.setPosition(startX + x * imageSize * 1.75f, startY + y * imageSize * 1.333333f); //made this in 800x600 so converted it the menu by multiplying it 
-                sprite1.setScale((imageSize * 1.75f) / texture1.getSize().x, (imageSize * 1.333333f) / texture1.getSize().y);
-                window.draw(sprite1);
-            } else {
-                sprite2.setPosition(startX + x * imageSize * 1.75f, startY + y * imageSize * 1.333333f);
-                sprite2.setScale((imageSize * 1.75f) / texture2.getSize().x, (imageSize * 1.333333f) / texture2.getSize().y);
-                window.draw(sprite2);
-            }
-        }
-    }
 
+    if(score>highscore)
+    {
+        highscore=score;
+    }
     scoreText.setString("Score");
     scoreText.setPosition(30.0f*1.75f,150.0* 1.333333f);
     window.draw(scoreText);

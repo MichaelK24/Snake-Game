@@ -18,6 +18,8 @@ void GameScreen::draw(sf::RenderWindow& window)
    //window.draw(mBackground);
    mBoard.render(window);
    mSnake.draw(window);
+   int score= mSnake.getScore();
+   mBoard.setScore(score);
    if (gameOver){
     //draw game over on top
    }
@@ -43,7 +45,7 @@ int GameScreen::handleInput(sf::Event &event)
     if (!gameOver){
        mSnake.turnInput(event); 
        gameOver = mSnake.actualTurn();
-       usleep(40);
+
        return 2;//stil in game
     }else{
         //check if user press anithing
