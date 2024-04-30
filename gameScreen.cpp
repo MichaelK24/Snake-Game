@@ -5,7 +5,7 @@
 GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window), mSnake(window) // Assuming mSnake is your game object
 {
     score = 0;
-    move2 =sf::milliseconds(100);
+    move2 =sf::milliseconds(90);
     // sf::Texture texture;
     // if (!texture.loadFromFile("boardupdat.jpg"))
     // {
@@ -61,7 +61,7 @@ int GameScreen::handleInput(sf::Event &event)
     }else{
         reset();
         gameOver = false;
-        return 1;
+        return 4;
     }
     
     

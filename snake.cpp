@@ -2,7 +2,7 @@
 
 Snake::Snake(sf::RenderWindow& window)
 {
-    
+    //timeMove = sf:: milliseconds(200);
     init();
     update();
 
@@ -120,8 +120,8 @@ bool Snake::actualTurn() {
         srand(time(NULL));
         int row, col;
         do {
-            row = rand() % 17;
-            col = rand() % 17;
+            row = rand() % 12+3;
+            col = rand() % 12+3;
         } while (board[row][col] != ' ');
         board[row][col] = 'A';
     } else {
@@ -132,6 +132,7 @@ bool Snake::actualTurn() {
 
     snake.insert(snake.begin(), newH);
     board[newH.x][newH.y] = 'S';
+    //move.restart();
     return false;
 }
 

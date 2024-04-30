@@ -19,6 +19,8 @@ private:
     std::vector<Point> snake;
     sf::RectangleShape array[17][17];
     bool gameOver;
+    // sf::Clock move;
+    // sf::Time timeMove;
     
     void initBoard();
 
