@@ -1,3 +1,11 @@
+/**
+ * @file WelcomeScreen.h
+ * @author Yolexis Rodriguez
+ * @brief Class that implement the function prototypes in  welcome screen 
+ * @date 04/29/2024
+ * 
+ * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+ */
 #ifndef WELCOME_SCREEN_H
 #define WELCOME_SCREEN_H
 

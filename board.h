@@ -13,12 +13,13 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 class Board {
 public:
     Board(sf::RenderWindow& window); // Pass the existing window as a reference
     ~Board(); // Destructor
-
+    void setScore(int mscore) {score =mscore;}
     //void run();
     void switchToGameOverScreen(); //game over screen 
     void render(sf::RenderWindow& window);

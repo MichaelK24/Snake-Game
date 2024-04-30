@@ -1,3 +1,11 @@
+/**
+ * @file Game.cpp
+ * @author Yolexis Rodriguez (created the set up)
+ * @brief This file controls the main window to implement all the files and fuction to main the game to work
+ * @date 04/29/2024
+ * 
+ * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+ */
 #include "game.h"
 
 Game::Game() : mWindow(sf::VideoMode(1400, 800), "SFML works!"), screen1(mWindow), screen2(mWindow), screen3(mWindow)

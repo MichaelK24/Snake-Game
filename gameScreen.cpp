@@ -1,9 +1,11 @@
 #include "gameScreen.h"
+#include <unistd.h>
 
 
 GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window), mSnake(window) // Assuming mSnake is your game object
 {
     score = 0;
+    move2 =sf::milliseconds(100);
     // sf::Texture texture;
     // if (!texture.loadFromFile("boardupdat.jpg"))
     // {
@@ -22,6 +24,8 @@ void GameScreen::draw(sf::RenderWindow& window)
    //window.draw(mBackground);
    mBoard.render(window);
    mSnake.draw(window);
+   int score= mSnake.getScore();
+   mBoard.setScore(score);
    if (gameOver){
     //draw game over on top
    }
@@ -31,7 +35,12 @@ void GameScreen::draw(sf::RenderWindow& window)
 
 void GameScreen::update()
 {
-    mSnake.update();
+    if(move.getElapsedTime() >= move2){
+        mSnake.update();
+        if(!mSnake.actualTurn()){
+            move.restart();
+        }
+    }
 }
 
 int GameScreen::handleInput(sf::Event &event)
@@ -47,7 +56,7 @@ int GameScreen::handleInput(sf::Event &event)
     if (!gameOver){
        mSnake.turnInput(event); 
        gameOver = mSnake.actualTurn();
-       usleep(40);
+
        return 2;//stil in game
     }else{
         reset();

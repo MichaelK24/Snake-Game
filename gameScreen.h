@@ -22,6 +22,8 @@ private:
     Board mBoard;
     sf::Sprite mBackground;
     Snake mSnake;
+    sf::Clock move;
+    sf::Time move2;
    // sf::Texture mTexture;
     bool gameOver;
     int score;

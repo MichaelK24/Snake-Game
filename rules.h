@@ -1,3 +1,11 @@
+/**
+ * @file WRules.h
+ * @author Yolexis Rodriguez
+ * @brief Class that create function prototype of the rules screen
+ * @date 04/29/2024
+ * 
+ * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+ */
 
 #ifndef RULES_H
 #define RULES_H
@@ -18,11 +26,13 @@ public:
     void updateButtons();
 
 private:
+    Button backButton;
     sf::Texture texture;
     sf::Texture rulesBackground1;
     sf::Sprite rulesBackground2;
-    Button backButton;
-    // sf::Font font;
+    sf::Text text;
+    //sf::RenderTexture textTexture;
+    sf::Font font; // Declare font her
 
 };
 
