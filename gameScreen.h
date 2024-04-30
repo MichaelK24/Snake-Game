@@ -16,6 +16,7 @@ public:
     void draw(sf::RenderWindow& window);
     void update();
     int handleInput(sf::Event &event);
+    void reset();
 
 private:
     Board mBoard;
@@ -23,6 +24,7 @@ private:
     Snake mSnake;
    // sf::Texture mTexture;
     bool gameOver;
+    int score;
 };
 
 #endif

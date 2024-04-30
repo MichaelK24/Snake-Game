@@ -13,15 +13,7 @@
 Snake::Snake(sf::RenderWindow& window)
 {
     
-    initBoard();
-    board[7][7] = 's';
-    board[11][7] = 'A';
-
-    Point initialPosition = {7,7};
-    snake.push_back(initialPosition);
-    dir = " ";
-    score = 0;
-    gameOver = false;
+    init();
     update();
 
     for (int i = 0; i <17; i++){
@@ -36,10 +28,19 @@ Snake::Snake(sf::RenderWindow& window)
         }
     }
 }
+void Snake::init()
+{
+    initBoard();
+    board[7][7] = 's';
+    board[11][7] = 'A';
 
-// Snake::~Snake(){
-
-// }
+    Point initialPosition = {7,7};
+    snake.clear();
+    snake.push_back(initialPosition);
+    dir = " ";
+    score = 0;
+    gameOver = false;
+}
 
 void Snake::initBoard()
 {

@@ -3,6 +3,7 @@
 
 GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window), mSnake(window) // Assuming mSnake is your game object
 {
+    score = 0;
     // sf::Texture texture;
     // if (!texture.loadFromFile("boardupdat.jpg"))
     // {
@@ -12,7 +13,10 @@ GameScreen::GameScreen(sf::RenderWindow& window) : mBoard(window), mSnake(window
    // mBackground.setTexture(mTexture);
    // mBackground.setScale(static_cast<float>(window.getSize().x) / mTexture.getSize().x,static_cast<float>(window.getSize().y) / mTexture.getSize().y);
 }
-
+void GameScreen::reset()
+{
+    mSnake.init();
+}
 void GameScreen::draw(sf::RenderWindow& window)
 {
    //window.draw(mBackground);
@@ -46,8 +50,8 @@ int GameScreen::handleInput(sf::Event &event)
        usleep(40);
        return 2;//stil in game
     }else{
-        //check if user press anithing
-        //~mSnake();
+        reset();
+        gameOver = false;
         return 1;
     }
     
