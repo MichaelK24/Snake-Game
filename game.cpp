@@ -1,19 +1,11 @@
-/**
- * @file Game.cpp
- * @author Yolexis Rodriguez (created the set up)
- * @brief This file controls the main window to implement all the files and fuction to main the game to work
- * @date 04/29/2024
- * 
- * Compiler for mac  g++ -std=c++11 *.cpp -I /opt/homebrew/Cellar/sfml/2.6.1/include -o prog -L /opt/homebrew/Cellar/sfml/2.6.1/lib -lsfml-graphics -lsfml-window -lsfml-system
- */
 #include "game.h"
 
-Game::Game() : mWindow(sf::VideoMode(1400, 800), "SFML works!"), screen1(mWindow), screen2(mWindow), screen3(mWindow)
+Game::Game() : mWindow(sf::VideoMode(1400, 800), "SFML works!"), screen1(mWindow), screen2(mWindow), screen3(mWindow), screen4(mWindow)
 {
     screen = 1;//set to 2 to test snake
     mIsDone = false;
 }
-//Handle events from input devices and the window
+
 void Game::handleInput(sf::Event &event)
 {
     while(mWindow.pollEvent(event))
@@ -28,7 +20,8 @@ void Game::handleInput(sf::Event &event)
         switch(screen)
         {
             case 1:
-                ret = screen1.handleInput(event, mWindow); //0 mean game over
+                ret = screen1.handleInput(event, mWindow);
+                 //0 mean game over
                 break;
 
             case 2: 
@@ -40,17 +33,18 @@ void Game::handleInput(sf::Event &event)
                 //screen3.handleInput(event);
                 ret = screen3.handleInput(event, mWindow); //0 mean game over
                 break;
-
+            case 4:
+                ret = screen4.handleInput(event, mWindow);
+                break;
         }
 
-        if (ret != -1)
+        if (ret!= -1)
         {
             screen = ret;
         }
 
     }
 }
-    
 
 void Game::update()
 {
@@ -67,6 +61,9 @@ void Game::update()
        break;
     case 3:
        screen3.updateButtons();
+       break;
+    case 4:
+       screen4.updateButtons();
        break;
     } 
 }
@@ -87,6 +84,8 @@ void Game::render()
             break;
         case 3: screen3.draw(mWindow);
             break;  
+        case 4: screen4.draw(mWindow);
+            break;
     }
         
     

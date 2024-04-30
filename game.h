@@ -13,6 +13,7 @@
 #include "welcomeScreen.h"
 #include "gameScreen.h"
 #include "rules.h"
+#include "gameover.h"
 // #include "button.h"
 
 class Game
@@ -24,11 +25,13 @@ public:
     void update();
     void render();
     bool isDone() const;
+    
 private:
     sf::RenderWindow  mWindow;
     WelcomeScreen screen1;
     GameScreen screen2;
     Rules screen3;
+    gameover screen4;
     int screen;
     bool mIsDone;
 
